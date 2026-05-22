@@ -1,8 +1,1 @@
-{
-  "type": "forge:add_features",
-  "biomes": {
-    "type": "forge:any"
-  },
-  "features": "factorio_enemies:spittersspawnergen",
-  "step": "surface_structures"
-}
+{}

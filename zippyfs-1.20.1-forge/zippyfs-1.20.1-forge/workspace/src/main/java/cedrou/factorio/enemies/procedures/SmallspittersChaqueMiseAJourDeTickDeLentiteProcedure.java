@@ -36,7 +36,7 @@ public class SmallspittersChaqueMiseAJourDeTickDeLentiteProcedure {
 							_entity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 40, 100, false, false));
 						entity.makeStuckInBlock(Blocks.AIR.defaultBlockState(), new Vec3(0.25, 0.05, 0.25));
 						if (world instanceof Level _level && !_level.isClientSide())
-							_level.explode(null, x, (y + 1), z, 6, Level.ExplosionInteraction.BLOCK);
+							_level.explode(null, x, (y + 1), z, 2, Level.ExplosionInteraction.BLOCK);
 						entity.makeStuckInBlock(Blocks.AIR.defaultBlockState(), new Vec3(0.25, 0.05, 0.25));
 					}
 				} else {
@@ -47,7 +47,7 @@ public class SmallspittersChaqueMiseAJourDeTickDeLentiteProcedure {
 							_entity.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 40, 100, false, false));
 						entity.makeStuckInBlock(Blocks.AIR.defaultBlockState(), new Vec3(0.25, 0.05, 0.25));
 						if (world instanceof Level _level && !_level.isClientSide())
-							_level.explode(null, x, (y + 1), z, 6, Level.ExplosionInteraction.BLOCK);
+							_level.explode(null, x, (y + 1), z, 2, Level.ExplosionInteraction.BLOCK);
 						entity.makeStuckInBlock(Blocks.AIR.defaultBlockState(), new Vec3(0.25, 0.05, 0.25));
 					}
 				}

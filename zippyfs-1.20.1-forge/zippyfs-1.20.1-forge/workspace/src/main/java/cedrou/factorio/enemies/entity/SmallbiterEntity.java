@@ -98,6 +98,11 @@ public class SmallbiterEntity extends Monster {
 	}
 
 	@Override
+	public float getSoundVolume() {
+		return 0.4f;
+	}
+
+	@Override
 	public boolean hurt(DamageSource damagesource, float amount) {
 		if (damagesource.is(DamageTypes.EXPLOSION) || damagesource.is(DamageTypes.PLAYER_EXPLOSION))
 			return false;
@@ -132,7 +137,7 @@ public class SmallbiterEntity extends Monster {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
 		builder = builder.add(Attributes.MAX_HEALTH, 10);
 		builder = builder.add(Attributes.ARMOR, 0);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 2);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
 		return builder;
 	}

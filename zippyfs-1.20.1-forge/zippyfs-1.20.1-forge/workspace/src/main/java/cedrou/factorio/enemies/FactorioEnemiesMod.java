@@ -13,9 +13,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+
+import com.mojang.serialization.Codec;
 
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -31,11 +38,16 @@ import cedrou.factorio.enemies.init.FactorioEnemiesModSounds;
 import cedrou.factorio.enemies.init.FactorioEnemiesModItems;
 import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
 import cedrou.factorio.enemies.init.FactorioEnemiesModBlocks;
+import cedrou.factorio.enemies.worldgen.NestClusterFeature;
 
 @Mod("factorio_enemies")
 public class FactorioEnemiesMod {
 	public static final Logger LOGGER = LogManager.getLogger(FactorioEnemiesMod.class);
 	public static final String MODID = "factorio_enemies";
+
+	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, MODID);
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> NEST_CLUSTER_FEATURE =
+			FEATURES.register("nest_cluster", () -> new NestClusterFeature(NoneFeatureConfiguration.CODEC));
 
 	public FactorioEnemiesMod() {
 		// Start of user code block mod constructor
@@ -49,6 +61,7 @@ public class FactorioEnemiesMod {
 		FactorioEnemiesModEntities.REGISTRY.register(bus);
 
 		FactorioEnemiesModTabs.REGISTRY.register(bus);
+		FEATURES.register(bus);
 
 		// Start of user code block mod init
 		// End of user code block mod init

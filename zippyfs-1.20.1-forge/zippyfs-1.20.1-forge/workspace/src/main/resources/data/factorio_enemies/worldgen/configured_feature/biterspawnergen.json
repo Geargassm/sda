@@ -1,11 +1,4 @@
 {
-  "type": "minecraft:simple_block",
-  "config": {
-    "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "factorio_enemies:nestbiter"
-      }
-    }
-  }
+  "type": "factorio_enemies:nest_cluster",
+  "config": {}
 }

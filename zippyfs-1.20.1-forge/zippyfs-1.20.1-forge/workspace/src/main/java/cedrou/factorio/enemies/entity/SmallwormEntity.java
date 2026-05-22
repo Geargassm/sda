@@ -100,6 +100,11 @@ public class SmallwormEntity extends Monster implements RangedAttackMob {
 	}
 
 	@Override
+	public float getSoundVolume() {
+		return 0.4f;
+	}
+
+	@Override
 	public boolean hurt(DamageSource damagesource, float amount) {
 		if (damagesource.is(DamageTypes.IN_FIRE))
 			return false;

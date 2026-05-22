@@ -20,6 +20,8 @@ import cedrou.factorio.enemies.entity.SmallwormEntity;
 import cedrou.factorio.enemies.entity.SmallspittersEntity;
 import cedrou.factorio.enemies.entity.SmallbiterEntity;
 import cedrou.factorio.enemies.entity.ProjectilefactorioEntity;
+import cedrou.factorio.enemies.entity.NestspittersMobEntity;
+import cedrou.factorio.enemies.entity.NestbiterMobEntity;
 import cedrou.factorio.enemies.entity.MediumwormEntity;
 import cedrou.factorio.enemies.entity.MediumspittersEntity;
 import cedrou.factorio.enemies.entity.MediumbiterEntity;
@@ -77,6 +79,15 @@ public class FactorioEnemiesModEntities {
 	public static final RegistryObject<EntityType<ProjectilefactorioEntity>> PROJECTILEFACTORIO = register("projectilefactorio", EntityType.Builder.<ProjectilefactorioEntity>of(ProjectilefactorioEntity::new, MobCategory.MISC)
 			.setCustomClientFactory(ProjectilefactorioEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
+	public static final RegistryObject<EntityType<NestbiterMobEntity>> NESTBITER_MOB = register("nestbiter_mob",
+			EntityType.Builder.<NestbiterMobEntity>of(NestbiterMobEntity::new, MobCategory.MONSTER)
+					.setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3)
+					.setCustomClientFactory(NestbiterMobEntity::new).sized(1.0f, 1.0f));
+	public static final RegistryObject<EntityType<NestspittersMobEntity>> NESTSPITTERS_MOB = register("nestspitters_mob",
+			EntityType.Builder.<NestspittersMobEntity>of(NestspittersMobEntity::new, MobCategory.MONSTER)
+					.setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3)
+					.setCustomClientFactory(NestspittersMobEntity::new).sized(1.0f, 1.0f));
+
 	// Start of user code block custom entities
 	// End of user code block custom entities
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
@@ -98,6 +109,8 @@ public class FactorioEnemiesModEntities {
 			MediumwormEntity.init();
 			BigwormEntity.init();
 			BehemothwormEntity.init();
+			NestbiterMobEntity.init();
+			NestspittersMobEntity.init();
 		});
 	}
 
@@ -115,5 +128,7 @@ public class FactorioEnemiesModEntities {
 		event.put(MEDIUMWORM.get(), MediumwormEntity.createAttributes().build());
 		event.put(BIGWORM.get(), BigwormEntity.createAttributes().build());
 		event.put(BEHEMOTHWORM.get(), BehemothwormEntity.createAttributes().build());
+		event.put(NESTBITER_MOB.get(), NestbiterMobEntity.createAttributes().build());
+		event.put(NESTSPITTERS_MOB.get(), NestspittersMobEntity.createAttributes().build());
 	}
 }

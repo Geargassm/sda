@@ -44,6 +44,11 @@ public class FactorioEnemiesModItems {
 	public static final RegistryObject<Item> NESTBITERBIGBEHEMOTH = block(FactorioEnemiesModBlocks.NESTBITERBIGBEHEMOTH);
 	public static final RegistryObject<Item> NESTBITERBEHEMOTH = block(FactorioEnemiesModBlocks.NESTBITERBEHEMOTH);
 
+	public static final RegistryObject<Item> NESTBITER_MOB_SPAWN_EGG = REGISTRY.register("nestbiter_mob_spawn_egg",
+			() -> new ForgeSpawnEggItem(FactorioEnemiesModEntities.NESTBITER_MOB, 0x8B4513, 0xFF4500, new Item.Properties()));
+	public static final RegistryObject<Item> NESTSPITTERS_MOB_SPAWN_EGG = REGISTRY.register("nestspitters_mob_spawn_egg",
+			() -> new ForgeSpawnEggItem(FactorioEnemiesModEntities.NESTSPITTERS_MOB, 0x556B2F, 0xFFD700, new Item.Properties()));
+
 	// Start of user code block custom items
 	// End of user code block custom items
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
