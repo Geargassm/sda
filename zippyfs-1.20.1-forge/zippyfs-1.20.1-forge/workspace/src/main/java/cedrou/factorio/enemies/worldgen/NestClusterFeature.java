@@ -2,17 +2,17 @@ package cedrou.factorio.enemies.worldgen;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerLevelAccessor;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import cedrou.factorio.enemies.entity.NestbiterMobEntity;
-import cedrou.factorio.enemies.entity.NestspittersMobEntity;
-import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
+
+import cedrou.factorio.enemies.block.NestBaseBlock;
+import cedrou.factorio.enemies.init.FactorioEnemiesModBlocks;
 
 public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
     public NestClusterFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -22,9 +22,6 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
         WorldGenLevel level = ctx.level();
-        if (!(level instanceof ServerLevelAccessor sla)) return false;
-        ServerLevel serverLevel = sla.getLevel();
-
         BlockPos origin = ctx.origin();
         RandomSource random = ctx.random();
 
@@ -42,27 +39,42 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
             if (candidate == null) continue;
 
             boolean isBiter = random.nextFloat() < 0.6f;
+            Block nestBlock = getNestBlock(tier, isBiter);
+            Direction facing = Direction.from2DDataValue(random.nextInt(4));
+            BlockState nestState = nestBlock.defaultBlockState()
+                    .setValue(NestBaseBlock.FACING, facing)
+                    .setValue(NestBaseBlock.WATERLOGGED, false);
 
-            if (isBiter) {
-                NestbiterMobEntity nest = (NestbiterMobEntity) FactorioEnemiesModEntities.NESTBITER_MOB.get().create(serverLevel);
-                if (nest == null) continue;
-                nest.setTier(tier);
-                nest.setPos(candidate.getX() + 0.5, candidate.getY(), candidate.getZ() + 0.5);
-                nest.finalizeSpawn(level, serverLevel.getCurrentDifficultyAt(candidate), MobSpawnType.WORLD_GENERATION, null, null);
-                serverLevel.addFreshEntityWithPassengers(nest);
-            } else {
-                NestspittersMobEntity nest = (NestspittersMobEntity) FactorioEnemiesModEntities.NESTSPITTERS_MOB.get().create(serverLevel);
-                if (nest == null) continue;
-                nest.setTier(tier);
-                nest.setPos(candidate.getX() + 0.5, candidate.getY(), candidate.getZ() + 0.5);
-                nest.finalizeSpawn(level, serverLevel.getCurrentDifficultyAt(candidate), MobSpawnType.WORLD_GENERATION, null, null);
-                serverLevel.addFreshEntityWithPassengers(nest);
-            }
+            level.setBlock(candidate, nestState, 3);
         }
         return true;
     }
 
-    private BlockPos findSurface(WorldGenLevel level, BlockPos start) {
+    private static Block getNestBlock(int tier, boolean isBiter) {
+        if (isBiter) {
+            return switch (tier) {
+                case 1 -> FactorioEnemiesModBlocks.NESTBITERSMALLMEDIUM.get();
+                case 2 -> FactorioEnemiesModBlocks.NESTBITERMEDIUM.get();
+                case 3 -> FactorioEnemiesModBlocks.NESTBITERMEDIUMBIG.get();
+                case 4 -> FactorioEnemiesModBlocks.NESTBITERBIG.get();
+                case 5 -> FactorioEnemiesModBlocks.NESTBITERBIGBEHEMOTH.get();
+                case 6 -> FactorioEnemiesModBlocks.NESTBITERBEHEMOTH.get();
+                default -> FactorioEnemiesModBlocks.NESTBITER.get();
+            };
+        } else {
+            return switch (tier) {
+                case 1 -> FactorioEnemiesModBlocks.NESTSPITTERSSMALLSMEDIUM.get();
+                case 2 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUM.get();
+                case 3 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUMBIG.get();
+                case 4 -> FactorioEnemiesModBlocks.NESTSPITTERSBIG.get();
+                case 5 -> FactorioEnemiesModBlocks.NESTSPITTERSBIGBEHEMOTH.get();
+                case 6 -> FactorioEnemiesModBlocks.NESTSPITTERSBEHEMOTH.get();
+                default -> FactorioEnemiesModBlocks.NESTSPITTERS_SMALLS.get();
+            };
+        }
+    }
+
+    private static BlockPos findSurface(WorldGenLevel level, BlockPos start) {
         BlockPos pos = start.atY(level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE_WG, start.getX(), start.getZ()));
         if (pos.getY() <= level.getMinBuildHeight()) return null;
         if (!level.getBlockState(pos.below()).isSolid()) return null;

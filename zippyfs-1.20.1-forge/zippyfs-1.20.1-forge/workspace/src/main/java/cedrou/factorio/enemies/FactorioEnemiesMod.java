@@ -37,6 +37,7 @@ import cedrou.factorio.enemies.init.FactorioEnemiesModTabs;
 import cedrou.factorio.enemies.init.FactorioEnemiesModSounds;
 import cedrou.factorio.enemies.init.FactorioEnemiesModItems;
 import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
+import cedrou.factorio.enemies.init.FactorioEnemiesModBlockEntities;
 import cedrou.factorio.enemies.init.FactorioEnemiesModBlocks;
 import cedrou.factorio.enemies.worldgen.NestClusterFeature;
 
@@ -59,6 +60,7 @@ public class FactorioEnemiesMod {
 
 		FactorioEnemiesModItems.REGISTRY.register(bus);
 		FactorioEnemiesModEntities.REGISTRY.register(bus);
+		FactorioEnemiesModBlockEntities.REGISTRY.register(bus);
 
 		FactorioEnemiesModTabs.REGISTRY.register(bus);
 		FEATURES.register(bus);
