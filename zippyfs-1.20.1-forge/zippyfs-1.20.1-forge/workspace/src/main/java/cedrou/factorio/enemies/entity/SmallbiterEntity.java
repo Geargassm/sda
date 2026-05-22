@@ -32,6 +32,7 @@ import net.minecraft.network.protocol.Packet;
 import cedrou.factorio.enemies.procedures.SmallspittersPlaybackConditionProcedure;
 import cedrou.factorio.enemies.procedures.SmallspittersChaqueMiseAJourDeTickDeLentiteProcedure;
 import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
+import cedrou.factorio.enemies.entity.BreakBlockGoal;
 
 public class SmallbiterEntity extends Monster {
 	public final AnimationState animationState1 = new AnimationState();
@@ -59,6 +60,7 @@ public class SmallbiterEntity extends Monster {
 		super.registerGoals();
 		this.getNavigation().getNodeEvaluator().setCanOpenDoors(true);
 		this.goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(1, new BreakBlockGoal(this));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
