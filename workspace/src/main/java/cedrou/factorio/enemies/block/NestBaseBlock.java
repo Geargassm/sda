@@ -88,7 +88,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
-        return RenderShape.INVISIBLE;
+        return RenderShape.MODEL;
     }
 
     @Override

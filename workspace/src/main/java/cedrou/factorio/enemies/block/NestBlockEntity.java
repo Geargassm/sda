@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
@@ -73,6 +74,7 @@ public class NestBlockEntity extends BlockEntity {
         be.spawnTimer = 0;
 
         if (!(level instanceof ServerLevel sl)) return;
+        if (level.getDifficulty() == Difficulty.PEACEFUL) return;
 
         // Check global phase; upgrade block type if phase has advanced beyond this nest's tier
         int globalPhase = NestProgressData.get(sl).getPhase();
