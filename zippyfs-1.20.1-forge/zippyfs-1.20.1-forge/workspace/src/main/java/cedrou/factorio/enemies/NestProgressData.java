@@ -28,7 +28,7 @@ public class NestProgressData extends SavedData {
 
     public static NestProgressData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage()
-                .computeIfAbsent(NestProgressData::load, NestProgressData::new, ID);
+                .computeIfAbsent(new SavedData.Factory<>(NestProgressData::new, NestProgressData::load, null), ID);
     }
 
     public static NestProgressData load(CompoundTag tag) {
