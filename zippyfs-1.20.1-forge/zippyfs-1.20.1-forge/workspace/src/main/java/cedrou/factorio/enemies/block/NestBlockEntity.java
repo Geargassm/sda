@@ -1,6 +1,7 @@
 package cedrou.factorio.enemies.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
+import cedrou.factorio.enemies.NestProgressData;
 import cedrou.factorio.enemies.entity.BehemothbiterEntity;
 import cedrou.factorio.enemies.entity.BehemothspittersEntity;
 import cedrou.factorio.enemies.entity.BigbiterEntity;
@@ -46,6 +48,9 @@ public class NestBlockEntity extends BlockEntity {
         this(pos, state, 0, true);
     }
 
+    public int getTier() { return tier; }
+    public boolean isBiter() { return isBiter; }
+
     public void aggro() {
         this.aggroed = true;
         this.aggroTimer = 0;
@@ -67,6 +72,23 @@ public class NestBlockEntity extends BlockEntity {
         if (be.spawnTimer < interval) return;
         be.spawnTimer = 0;
 
+        if (!(level instanceof ServerLevel sl)) return;
+
+        // Check global phase; upgrade block type if phase has advanced beyond this nest's tier
+        int globalPhase = NestProgressData.get(sl).getPhase();
+        if (globalPhase > be.tier) {
+            Direction facing = state.hasProperty(NestBaseBlock.FACING)
+                    ? state.getValue(NestBaseBlock.FACING) : Direction.NORTH;
+            boolean waterlogged = state.hasProperty(NestBaseBlock.WATERLOGGED)
+                    && state.getValue(NestBaseBlock.WATERLOGGED);
+            BlockState upgraded = NestBaseBlock.forTierAndType(globalPhase, be.isBiter)
+                    .defaultBlockState()
+                    .setValue(NestBaseBlock.FACING, facing)
+                    .setValue(NestBaseBlock.WATERLOGGED, waterlogged);
+            level.setBlock(pos, upgraded, 3);
+            return;
+        }
+
         Player nearestPlayer = level.getNearestPlayer(
                 pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, TERRITORY_RADIUS, false);
 
@@ -77,7 +99,7 @@ public class NestBlockEntity extends BlockEntity {
 
         if (nearestPlayer == null) return;
 
-        be.spawnMobs((ServerLevel) level, pos);
+        be.spawnMobs(sl, pos);
         be.setChanged();
     }
 

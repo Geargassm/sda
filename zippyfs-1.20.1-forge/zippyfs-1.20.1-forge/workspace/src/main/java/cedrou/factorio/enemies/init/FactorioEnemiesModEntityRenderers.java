@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
+import cedrou.factorio.enemies.client.renderer.NestBlockEntityRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallwormRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallspittersRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallbiterRenderer;
@@ -26,6 +27,11 @@ import cedrou.factorio.enemies.client.renderer.BehemothbiterRenderer;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class FactorioEnemiesModEntityRenderers {
+	@SubscribeEvent
+	public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterBlockEntityRenderers event) {
+		event.registerBlockEntityRenderer(FactorioEnemiesModBlockEntities.NEST_BLOCK_ENTITY.get(), NestBlockEntityRenderer::new);
+	}
+
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(FactorioEnemiesModEntities.SMALLSPITTERS.get(), SmallspittersRenderer::new);

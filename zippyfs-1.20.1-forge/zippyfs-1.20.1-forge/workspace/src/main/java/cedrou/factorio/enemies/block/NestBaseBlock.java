@@ -6,12 +6,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.RenderShape;
@@ -32,7 +34,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import cedrou.factorio.enemies.NestProgressData;
 import cedrou.factorio.enemies.init.FactorioEnemiesModBlockEntities;
+import cedrou.factorio.enemies.init.FactorioEnemiesModBlocks;
 
 import javax.annotation.Nullable;
 
@@ -48,7 +52,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-vie")),
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-destruction-2")),
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-destruction-2"))))
-                .strength(25f, 300f)
+                .strength(3f, 5f)
                 .noOcclusion()
                 .isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
@@ -57,9 +61,34 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
     protected abstract int getTier();
     protected abstract boolean isBiter();
 
+    // Shared tier→block mapping used by NestBlockEntity and NestClusterFeature
+    public static Block forTierAndType(int tier, boolean isBiter) {
+        if (isBiter) {
+            return switch (tier) {
+                case 1 -> FactorioEnemiesModBlocks.NESTBITERSMALLMEDIUM.get();
+                case 2 -> FactorioEnemiesModBlocks.NESTBITERMEDIUM.get();
+                case 3 -> FactorioEnemiesModBlocks.NESTBITERMEDIUMBIG.get();
+                case 4 -> FactorioEnemiesModBlocks.NESTBITERBIG.get();
+                case 5 -> FactorioEnemiesModBlocks.NESTBITERBIGBEHEMOTH.get();
+                case 6 -> FactorioEnemiesModBlocks.NESTBITERBEHEMOTH.get();
+                default -> FactorioEnemiesModBlocks.NESTBITER.get();
+            };
+        } else {
+            return switch (tier) {
+                case 1 -> FactorioEnemiesModBlocks.NESTSPITTERSSMALLSMEDIUM.get();
+                case 2 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUM.get();
+                case 3 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUMBIG.get();
+                case 4 -> FactorioEnemiesModBlocks.NESTSPITTERSBIG.get();
+                case 5 -> FactorioEnemiesModBlocks.NESTSPITTERSBIGBEHEMOTH.get();
+                case 6 -> FactorioEnemiesModBlocks.NESTSPITTERSBEHEMOTH.get();
+                default -> FactorioEnemiesModBlocks.NESTSPITTERS_SMALLS.get();
+            };
+        }
+    }
+
     @Override
     public RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
+        return RenderShape.INVISIBLE;
     }
 
     @Override
@@ -79,6 +108,14 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof NestBlockEntity be) {
             be.aggro();
         }
+    }
+
+    @Override
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (level instanceof ServerLevel sl) {
+            NestProgressData.get(sl).incrementKills();
+        }
+        super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
@@ -102,7 +139,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<net.minecraft.world.level.block.Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(FACING, WATERLOGGED);
     }

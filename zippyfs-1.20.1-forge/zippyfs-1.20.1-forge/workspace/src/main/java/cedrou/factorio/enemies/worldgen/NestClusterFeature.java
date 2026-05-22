@@ -5,14 +5,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import cedrou.factorio.enemies.block.NestBaseBlock;
-import cedrou.factorio.enemies.init.FactorioEnemiesModBlocks;
 
 public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
     public NestClusterFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -39,39 +37,15 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
             if (candidate == null) continue;
 
             boolean isBiter = random.nextFloat() < 0.6f;
-            Block nestBlock = getNestBlock(tier, isBiter);
             Direction facing = Direction.from2DDataValue(random.nextInt(4));
-            BlockState nestState = nestBlock.defaultBlockState()
+            BlockState nestState = NestBaseBlock.forTierAndType(tier, isBiter)
+                    .defaultBlockState()
                     .setValue(NestBaseBlock.FACING, facing)
                     .setValue(NestBaseBlock.WATERLOGGED, false);
 
             level.setBlock(candidate, nestState, 3);
         }
         return true;
-    }
-
-    private static Block getNestBlock(int tier, boolean isBiter) {
-        if (isBiter) {
-            return switch (tier) {
-                case 1 -> FactorioEnemiesModBlocks.NESTBITERSMALLMEDIUM.get();
-                case 2 -> FactorioEnemiesModBlocks.NESTBITERMEDIUM.get();
-                case 3 -> FactorioEnemiesModBlocks.NESTBITERMEDIUMBIG.get();
-                case 4 -> FactorioEnemiesModBlocks.NESTBITERBIG.get();
-                case 5 -> FactorioEnemiesModBlocks.NESTBITERBIGBEHEMOTH.get();
-                case 6 -> FactorioEnemiesModBlocks.NESTBITERBEHEMOTH.get();
-                default -> FactorioEnemiesModBlocks.NESTBITER.get();
-            };
-        } else {
-            return switch (tier) {
-                case 1 -> FactorioEnemiesModBlocks.NESTSPITTERSSMALLSMEDIUM.get();
-                case 2 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUM.get();
-                case 3 -> FactorioEnemiesModBlocks.NESTSPITTERSMEDIUMBIG.get();
-                case 4 -> FactorioEnemiesModBlocks.NESTSPITTERSBIG.get();
-                case 5 -> FactorioEnemiesModBlocks.NESTSPITTERSBIGBEHEMOTH.get();
-                case 6 -> FactorioEnemiesModBlocks.NESTSPITTERSBEHEMOTH.get();
-                default -> FactorioEnemiesModBlocks.NESTSPITTERS_SMALLS.get();
-            };
-        }
     }
 
     private static BlockPos findSurface(WorldGenLevel level, BlockPos start) {
