@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "factorio_enemies:behemothworm",
+    "factorio_enemies:bigworm",
+    "factorio_enemies:mediumworm",
+    "factorio_enemies:smallworm"
+  ]
+}

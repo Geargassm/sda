@@ -1,0 +1,9 @@
+{
+  "parent": "factorio_enemies:custom/spitters_nest",
+  "textures": {
+    "all": "factorio_enemies:block/nest_spitter_animated",
+    "particle": "factorio_enemies:block/nest_spitter_animated",
+    "0": "factorio_enemies:block/spitternest"
+  },
+  "render_type": "solid"
+}

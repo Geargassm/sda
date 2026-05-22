@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "factorio_enemies:block/nestbitermedium"
+    },
+    "facing=east": {
+      "model": "factorio_enemies:block/nestbitermedium",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "factorio_enemies:block/nestbitermedium",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "factorio_enemies:block/nestbitermedium",
+      "y": 270
+    }
+  }
+}

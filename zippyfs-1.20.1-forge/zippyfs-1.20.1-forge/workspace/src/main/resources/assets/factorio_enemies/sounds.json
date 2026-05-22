@@ -1,0 +1,106 @@
+{
+  "bitter-vie": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:biter-call-6",
+        "stream": false
+      }
+    ]
+  },
+  "spiter-atack": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:spiters_1_2",
+        "stream": false
+      }
+    ]
+  },
+  "projectile": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:projectile-acid-burn-1",
+        "stream": false
+      }
+    ]
+  },
+  "spawner-destruction": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:spawner-death-2",
+        "stream": false
+      }
+    ]
+  },
+  "spawner-destruction-2": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:spawner-death-1",
+        "stream": false
+      }
+    ]
+  },
+  "worm-vie": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:worm-breathe-02",
+        "stream": false
+      }
+    ]
+  },
+  "worm-small-death": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:worm-death-small-4",
+        "stream": false
+      }
+    ]
+  },
+  "worm-atack": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:worm-roar-4",
+        "stream": false
+      }
+    ]
+  },
+  "spitter-death": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:spitter-death-1",
+        "stream": false
+      }
+    ]
+  },
+  "worm-death": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:worm-death-2",
+        "stream": false
+      }
+    ]
+  },
+  "biter-death": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:biter-death-3",
+        "stream": false
+      }
+    ]
+  },
+  "spawner-vie": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:spawner",
+        "stream": false
+      }
+    ]
+  },
+  "biter-atack": {
+    "sounds": [
+      {
+        "name": "factorio_enemies:biter-roar-1",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "factorio_enemies:nestspitters_smalls"
+      }
+    }
+  }
+}

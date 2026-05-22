@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="factorio_enemies"
+version="0.5.1"
+displayName="Factorio enemies"
+displayURL="https://www.minecraft.net"
+credits="by cedr0u for zippyfs"
+authors="cedr0u"
+description="Factorio enemies mod for MC"
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.factorio_enemies]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

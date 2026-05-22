@@ -1,0 +1,9 @@
+{
+  "parent": "factorio_enemies:custom/biter_nest",
+  "textures": {
+    "all": "factorio_enemies:block/nest_biter_animated",
+    "particle": "factorio_enemies:block/nest_biter_animated",
+    "0": "factorio_enemies:block/texture"
+  },
+  "render_type": "solid"
+}

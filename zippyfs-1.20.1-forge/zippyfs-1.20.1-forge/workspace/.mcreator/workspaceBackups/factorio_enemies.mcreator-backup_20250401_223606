@@ -1,0 +1,1220 @@
+{
+  "mod_elements": [
+    {
+      "name": "SmallspittersPlaybackCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallspitters_playback_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/SmallspittersPlaybackConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/script/AnimationCondition"
+    },
+    {
+      "name": "Smallspitters",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallspitters",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/SmallspittersEntity.java",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/SmallspittersRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/smallspitters_spawn_egg.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Mediumspitters",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mediumspitters",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/MediumspittersEntity.java",
+          "src/main/resources/assets/factorio_enemies/models/item/mediumspitters_spawn_egg.json",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/MediumspittersRenderer.java"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Bigspitters",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bigspitters",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BigspittersRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/bigspitters_spawn_egg.json",
+          "src/main/java/cedrou/factorio/enemies/entity/BigspittersEntity.java"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Behemothspitters",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behemothspitters",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/BehemothspittersEntity.java",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BehemothspittersRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/behemothspitters_spawn_egg.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "NestspittersChaqueMiseAJourDeTickDeLentite",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspitters_chaque_mise_a_jour_de_tick_de_lentite",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/NestspittersChaqueMiseAJourDeTickDeLentiteProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/script/spawner_nest"
+    },
+    {
+      "name": "Smallbiter",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallbiter",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/SmallbiterRenderer.java",
+          "src/main/java/cedrou/factorio/enemies/entity/SmallbiterEntity.java",
+          "src/main/resources/assets/factorio_enemies/models/item/smallbiter_spawn_egg.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Mediumbiter",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mediumbiter",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/MediumbiterEntity.java",
+          "src/main/resources/assets/factorio_enemies/models/item/mediumbiter_spawn_egg.json",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/MediumbiterRenderer.java"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Bigbiter",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bigbiter",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BigbiterRenderer.java",
+          "src/main/java/cedrou/factorio/enemies/entity/BigbiterEntity.java",
+          "src/main/resources/assets/factorio_enemies/models/item/bigbiter_spawn_egg.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Behemothbiter",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behemothbiter",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BehemothbiterRenderer.java",
+          "src/main/java/cedrou/factorio/enemies/entity/BehemothbiterEntity.java",
+          "src/main/resources/assets/factorio_enemies/models/item/behemothbiter_spawn_egg.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "NestbiterChaqueMiseAJourDeTickDeLentite",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbiter_chaque_mise_a_jour_de_tick_de_lentite",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/NestbiterChaqueMiseAJourDeTickDeLentiteProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/script/spawner_nest"
+    },
+    {
+      "name": "Factorioenemiestab",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "factorioenemiestab",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "Nestspitters",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspitters_smalls",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersBlock.java",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspitters_smalls.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspitters_smalls.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspitters_smalls.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspitters_smalls.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestbiter",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbiter",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestbiterBlock.java",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbiter.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbiter.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbiter.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbiter.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Smallworm",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallworm",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/SmallwormEntity.java",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/SmallwormRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/smallworm_spawn_egg.json"
+        ]
+      },
+      "path": "~/worm"
+    },
+    {
+      "name": "Mediumworm",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mediumworm",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/MediumwormEntity.java",
+          "src/main/java/cedrou/factorio/enemies/client/renderer/MediumwormRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/mediumworm_spawn_egg.json"
+        ]
+      },
+      "path": "~/worm"
+    },
+    {
+      "name": "Bigworm",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bigworm",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BigwormRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/bigworm_spawn_egg.json",
+          "src/main/java/cedrou/factorio/enemies/entity/BigwormEntity.java"
+        ]
+      },
+      "path": "~/worm"
+    },
+    {
+      "name": "Behemothworm",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "behemothworm",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/client/renderer/BehemothwormRenderer.java",
+          "src/main/resources/assets/factorio_enemies/models/item/behemothworm_spawn_egg.json",
+          "src/main/java/cedrou/factorio/enemies/entity/BehemothwormEntity.java"
+        ]
+      },
+      "path": "~/worm"
+    },
+    {
+      "name": "SmallwormspawnPlaybackCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallwormspawn_playback_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/SmallwormspawnPlaybackConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/script/AnimationCondition"
+    },
+    {
+      "name": "Projectilefactorio",
+      "type": "projectile",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "projectilefactorio",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/entity/ProjectilefactorioEntity.java"
+        ]
+      },
+      "path": "~/projectile"
+    },
+    {
+      "name": "SmallspittersChaqueMiseAJourDeTickDeLentite",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smallspitters_chaque_mise_a_jour_de_tick_de_lentite",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/SmallspittersChaqueMiseAJourDeTickDeLentiteProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/script"
+    },
+    {
+      "name": "Nestspitterssmallsmedium",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspitterssmallsmedium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestspitterssmallsmediumBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspitterssmallsmedium.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspitterssmallsmedium.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspitterssmallsmedium.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspitterssmallsmedium.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestspittersmedium",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspittersmedium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersmediumBlock.java",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspittersmedium.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspittersmedium.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspittersmedium.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspittersmedium.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestspittersmediumbig",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspittersmediumbig",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersmediumbigBlock.java",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspittersmediumbig.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspittersmediumbig.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspittersmediumbig.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspittersmediumbig.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestspittersbig",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspittersbig",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/factorio_enemies/models/item/nestspittersbig.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspittersbig.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspittersbig.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspittersbig.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersbigBlock.java"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestspittersbigbehemoth",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspittersbigbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspittersbigbehemoth.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersbigbehemothBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspittersbigbehemoth.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspittersbigbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspittersbigbehemoth.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestspittersbehemoth",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestspittersbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/factorio_enemies/blockstates/nestspittersbehemoth.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestspittersbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestspittersbehemoth.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestspittersbehemothBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/item/nestspittersbehemoth.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Place_nestspitters_smalls_medium",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_nestspitters_smalls_medium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/Place_nestspitters_smalls_mediumProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Placenestspittersmedium",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestspittersmedium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestspittersmediumProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Placenestspittersmediumbig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestspittersmediumbig",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestspittersmediumbigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Placenestspittersbig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestspittersbig",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestspittersbigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Placenestspittersbigbehemoth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestspittersbigbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestspittersbigbehemothProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Placenestspittersbehemoth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestspittersbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestspittersbehemothProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Nestbitersmallmedium",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbitersmallmedium",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/factorio_enemies/models/block/nestbitersmallmedium.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbitersmallmedium.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbitersmallmedium.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbitersmallmedium.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestbitersmallmediumBlock.java"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Nestbitermedium",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbitermedium",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbitermedium.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestbitermediumBlock.java",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbitermedium.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbitermedium.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbitermedium.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Nestbitermediumbig",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbitermediumbig",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbitermediumbig.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbitermediumbig.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbitermediumbig.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbitermediumbig.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestbitermediumbigBlock.java"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Nestbiterbig",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbiterbig",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbiterbig.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbiterbig.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestbiterbigBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbiterbig.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbiterbig.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Nestbiterbigbehemoth",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbiterbigbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbiterbigbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbiterbigbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbiterbigbehemoth.json",
+          "src/main/java/cedrou/factorio/enemies/block/NestbiterbigbehemothBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbiterbigbehemoth.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Nestbiterbehemoth",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nestbiterbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/block/NestbiterbehemothBlock.java",
+          "src/main/resources/assets/factorio_enemies/models/item/nestbiterbehemoth.json",
+          "src/main/resources/data/factorio_enemies/loot_tables/blocks/nestbiterbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/blockstates/nestbiterbehemoth.json",
+          "src/main/resources/assets/factorio_enemies/models/block/nestbiterbehemoth.json"
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersmallmedium",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersmallmedium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersmallmediumProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersmedium",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersmedium",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersmediumProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersmediumbig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersmediumbig",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersmediumbigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersbig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersbig",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersbigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersbigbehemoth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersbigbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersbigbehemothProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Placenestbitersbehemoth",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "placenestbitersbehemoth",
+      "metadata": {
+        "files": [
+          "src/main/java/cedrou/factorio/enemies/procedures/PlacenestbitersbehemothProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/biter"
+    },
+    {
+      "name": "Spittersspawnergen",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spittersspawnergen",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/factorio_enemies/forge/biome_modifier/spittersspawnergen_biome_modifier.json",
+          "src/main/resources/data/factorio_enemies/worldgen/configured_feature/spittersspawnergen.json",
+          "src/main/resources/data/factorio_enemies/worldgen/placed_feature/spittersspawnergen.json"
+        ]
+      },
+      "path": "~/spitters"
+    },
+    {
+      "name": "Biterspawnergen",
+      "type": "feature",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "biterspawnergen",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/factorio_enemies/forge/biome_modifier/biterspawnergen_biome_modifier.json",
+          "src/main/resources/data/factorio_enemies/worldgen/configured_feature/biterspawnergen.json",
+          "src/main/resources/data/factorio_enemies/worldgen/placed_feature/biterspawnergen.json"
+        ]
+      },
+      "path": "~/biter"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [
+    {
+      "name": "bitter-vie",
+      "files": [
+        "biter-call-6"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spiter-atack",
+      "files": [
+        "spiters_1_2"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "projectile",
+      "files": [
+        "projectile-acid-burn-1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spawner-destruction",
+      "files": [
+        "spawner-death-2"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spawner-destruction-2",
+      "files": [
+        "spawner-death-1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "worm-vie",
+      "files": [
+        "worm-breathe-02"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "worm-small-death",
+      "files": [
+        "worm-death-small-4"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "worm-atack",
+      "files": [
+        "worm-roar-4"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spitter-death",
+      "files": [
+        "spitter-death-1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "worm-death",
+      "files": [
+        "worm-death-2"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "biter-death",
+      "files": [
+        "biter-death-3"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spawner-vie",
+      "files": [
+        "spawner"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "biter-atack",
+      "files": [
+        "biter-roar-1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {
+    "ENTITIES:mod:worms": [
+      "CUSTOM:Behemothworm",
+      "CUSTOM:Bigworm",
+      "CUSTOM:Mediumworm",
+      "CUSTOM:Smallworm"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item_group.factorio_enemies.factorioenemiestab": "Factorio enemies",
+      "subtitles.spawner-destruction": "",
+      "item.factorio_enemies.behemothbiter_spawn_egg": "Behemoth biter Spawn Egg",
+      "entity.factorio_enemies.bigbiter": "Big biter",
+      "item.factorio_enemies.mediumbiter_spawn_egg": "Medium biter Spawn Egg",
+      "subtitles.worm-atack": "",
+      "item.factorio_enemies.bigbiter_spawn_egg": "Big biter Spawn Egg",
+      "block.factorio_enemies.nestspittersmediumbig": "Nestspitters",
+      "item.factorio_enemies.smallspitters_spawn_egg": "Small spitters Spawn Egg",
+      "item.factorio_enemies.behemothworm_spawn_egg": "Behemoth worm Spawn Egg",
+      "subtitles.worm-small-death": "",
+      "block.factorio_enemies.nestspittersbehemoth": "Nestspitters",
+      "subtitles.spawner-vie": "",
+      "item.factorio_enemies.mediumworm_spawn_egg": "Medium worm Spawn Egg",
+      "subtitles.bitter-vie": "",
+      "block.factorio_enemies.nestbiter": "Nestspitters",
+      "entity.factorio_enemies.bigspitters": "Big spitters",
+      "block.factorio_enemies.nestbitermedium": "Nestspitters",
+      "entity.factorio_enemies.behemothspitters": "Behemoth spitters",
+      "item.factorio_enemies.behemothspitters_spawn_egg": "Behemoth spitters Spawn Egg",
+      "item.factorio_enemies.bigspitters_spawn_egg": "Big spitters Spawn Egg",
+      "subtitles.spiter-atack": "",
+      "block.factorio_enemies.nestbitermediumbig": "Nestspitters",
+      "subtitles.projectile": "",
+      "entity.factorio_enemies.smallbiter": "Small biter",
+      "subtitles.spitter-death": "",
+      "item.factorio_enemies.mediumspitters_spawn_egg": "Medium spitters Spawn Egg",
+      "block.factorio_enemies.nestspittersbigbehemoth": "Nestspitters",
+      "subtitles.spawner-destruction-2": "",
+      "subtitles.worm-death": "",
+      "entity.factorio_enemies.behemothworm": "Behemoth worm",
+      "item.factorio_enemies.smallbiter_spawn_egg": "Small biter Spawn Egg",
+      "subtitles.biter-atack": "",
+      "subtitles.worm-vie": "",
+      "entity.factorio_enemies.smallworm": "Small worm",
+      "entity.factorio_enemies.mediumbiter": "Medium biter",
+      "block.factorio_enemies.nestspittersbig": "Nestspitters",
+      "block.factorio_enemies.nestbiterbehemoth": "Nestspitters",
+      "block.factorio_enemies.nestspittersmedium": "Nestspitters",
+      "block.factorio_enemies.nestbiterbig": "Nestspitters",
+      "subtitles.biter-death": "",
+      "block.factorio_enemies.nestbitersmallmedium": "Nestspitters",
+      "block.factorio_enemies.nestspitters_smalls": "Nestspitters",
+      "item.factorio_enemies.bigworm_spawn_egg": "Big worm Spawn Egg",
+      "entity.factorio_enemies.behemothbiter": "Behemoth biter",
+      "block.factorio_enemies.nestbiterbigbehemoth": "Nestspitters",
+      "entity.factorio_enemies.mediumspitters": "Medium spitters",
+      "entity.factorio_enemies.smallspitters": "Small spitters",
+      "block.factorio_enemies.nestspitterssmallsmedium": "Nestspitters",
+      "entity.factorio_enemies.bigworm": "Big worm",
+      "entity.factorio_enemies.mediumworm": "Medium worm",
+      "item.factorio_enemies.smallworm_spawn_egg": "Small worm Spawn Egg"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "script",
+        "children": [
+          {
+            "name": "AnimationCondition",
+            "children": []
+          },
+          {
+            "name": "spawner_nest",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "spitters",
+        "children": []
+      },
+      {
+        "name": "biter",
+        "children": []
+      },
+      {
+        "name": "worm",
+        "children": []
+      },
+      {
+        "name": "projectile",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "factorio_enemies",
+    "modName": "Factorio enemies",
+    "version": "0.5.1",
+    "description": "Factorio enemies mod for MC",
+    "author": "cedr0u",
+    "websiteURL": "https://www.minecraft.net",
+    "license": "All Rights Reserved",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "by cedr0u for zippyfs",
+    "modElementsPackage": "cedrou.factorio.enemies"
+  },
+  "mcreatorVersion": 202400452410
+}
