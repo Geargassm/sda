@@ -1,1 +1,6 @@
-{}
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "factorio_enemies:spittersspawnergen",
+  "step": "surface_structures"
+}
