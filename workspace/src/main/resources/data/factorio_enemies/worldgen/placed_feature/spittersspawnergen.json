@@ -3,35 +3,14 @@
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 10
-    },
-    {
-      "type": "minecraft:count",
-      "count": {
-        "type": "uniform",
-        "value": {
-          "min_inclusive": 0,
-          "max_inclusive": 1
-        }
-      }
+      "chance": 300
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR_WG"
-    },
-    {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:solid",
-        "offset": [
-          0,
-          -1,
-          0
-        ]
-      }
+      "heightmap": "WORLD_SURFACE_WG"
     },
     {
       "type": "minecraft:biome"

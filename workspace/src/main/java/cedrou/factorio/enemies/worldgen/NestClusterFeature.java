@@ -26,11 +26,11 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
         double dist = Math.sqrt((double) origin.getX() * origin.getX() + (double) origin.getZ() * origin.getZ());
         int tier = (int) Math.min(6, dist / 500.0);
 
-        int count = 3 + random.nextInt(3);
+        int count = 5 + random.nextInt(4);
 
         for (int i = 0; i < count; i++) {
-            int dx = random.nextInt(21) - 10;
-            int dz = random.nextInt(21) - 10;
+            int dx = random.nextInt(11) - 5;
+            int dz = random.nextInt(11) - 5;
             BlockPos candidate = origin.offset(dx, 0, dz);
 
             candidate = findSurface(level, candidate);

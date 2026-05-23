@@ -36,7 +36,7 @@ public class NestBlockEntity extends BlockEntity {
     private int currentHealth = -1;
 
     private static final int TERRITORY_RADIUS = 64;
-    private static final int MAX_MOBS = 10;
+    private static final int MAX_MOBS = 5;
     private static final int NORMAL_SPAWN_INTERVAL = 100;
     private static final int AGGRO_SPAWN_INTERVAL = 20;
     private static final int AGGRO_DURATION = 1200;

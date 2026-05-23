@@ -53,7 +53,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-vie")),
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-destruction-2")),
                         () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("factorio_enemies:spawner-destruction-2"))))
-                .strength(3f, 5f)
+                .strength(-1f, 3600000f)
                 .noOcclusion()
                 .isRedstoneConductor((bs, br, bp) -> false));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
