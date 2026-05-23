@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbehemoth"},
     "title": {"text": "The Colony's Finest"},
-    "description": {"text": "Full behemoth swarms. Every nest you crushed hatched something worse. This is what you made."},
+    "description": {"text": "Full behemoth swarms. The colony's peak. You got here fast."},
     "show_toast": true,
     "announce_to_chat": true
   },

@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbitersmallmedium"},
     "title": {"text": "Molting Season"},
-    "description": {"text": "Something larger is crawling out of the nests. The smaller biters are retreating. They shed. They grew. Of course they did."},
+    "description": {"text": "The smaller ones are gone. Something bigger fills their place."},
     "show_toast": true,
     "announce_to_chat": true
   },
