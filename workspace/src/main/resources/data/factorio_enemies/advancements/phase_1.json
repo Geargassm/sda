@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbitersmallmedium"},
     "title": {"text": "Molting Season"},
-    "description": {"text": "The smaller ones have thinned out. Something larger fills their place — still nothing to worry about."},
+    "description": {"text": "You've cleared enough nests to earn this. The colony hatches something bigger in response."},
     "show_toast": true,
     "announce_to_chat": true
   },
