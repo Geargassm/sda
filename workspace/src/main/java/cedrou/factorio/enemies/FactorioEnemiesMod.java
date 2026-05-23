@@ -13,13 +13,21 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.server.ServerLifecycleHooks;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 
 import cedrou.factorio.enemies.NestProgressData;
 import net.minecraftforge.registries.DeferredRegister;
@@ -120,6 +128,23 @@ public class FactorioEnemiesMod {
 	public static void queueServerWork(int tick, Runnable action) {
 		if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
 			workQueue.add(new AbstractMap.SimpleEntry<>(action, tick));
+	}
+
+	@SubscribeEvent
+	public void onLivingHurt(LivingHurtEvent event) {
+		if (!(event.getEntity() instanceof Player player)) return;
+		Entity attacker = event.getSource().getEntity();
+		if (!(attacker instanceof LivingEntity attLiving)) return;
+		ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType());
+		if (id == null || !MODID.equals(id.getNamespace())) return;
+		double attackDmg = attLiving.getAttributeValue(Attributes.ATTACK_DAMAGE);
+		int extraDurability = Math.max(1, (int) (attackDmg * 4));
+		for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
+			ItemStack armor = player.getItemBySlot(slot);
+			if (!armor.isEmpty() && armor.getItem() instanceof ArmorItem) {
+				armor.hurtAndBreak(extraDurability, player, p -> p.broadcastBreakEvent(slot));
+			}
+		}
 	}
 
 	@SubscribeEvent
