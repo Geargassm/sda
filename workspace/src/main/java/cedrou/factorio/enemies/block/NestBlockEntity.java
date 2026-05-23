@@ -54,6 +54,7 @@ public class NestBlockEntity extends BlockEntity {
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, NestBlockEntity be) {
         if (!(level instanceof ServerLevel sl)) return;
+        if (level.getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false) == null) return;
         NestEntity entity = FactorioEnemiesModEntities.NEST_ENTITY.get().create(sl);
         if (entity == null) return;
         entity.init(be.tier, be.isBiter);
