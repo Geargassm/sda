@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermediumbig"},
-    "title": {"text": "Escalation Protocol"},
-    "description": {"text": "Large units have been spotted near the nests. Whatever you're building in there, they've noticed."},
+    "title": {"text": "Concerningly Large Bugs"},
+    "description": {"text": "Large units have joined the swarms. Still bugs. Just... concerningly large ones."},
     "show_toast": true,
     "announce_to_chat": true
   },

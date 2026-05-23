@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitersmallmedium"},
-    "title": {"text": "Growing Pains"},
-    "description": {"text": "The nests are adapting. Medium-class units have begun to emerge. Should've built more walls."},
+    "title": {"text": "Bigger Bugs"},
+    "description": {"text": "Medium-class units are appearing among the swarms. They got bigger. Of course they did."},
     "show_toast": true,
     "announce_to_chat": true
   },

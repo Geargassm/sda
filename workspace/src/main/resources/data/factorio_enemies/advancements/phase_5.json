@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbigbehemoth"},
-    "title": {"text": "Oh No."},
-    "description": {"text": "Behemoth-class units have been detected. A behemoth can take a lot of punishment. More than you'd like to test."},
+    "title": {"text": "Absurdly Large Bugs"},
+    "description": {"text": "Behemoth-class units detected. Bigger than anything before. Still technically just bugs."},
     "show_toast": true,
     "announce_to_chat": true
   },
