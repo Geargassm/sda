@@ -138,7 +138,7 @@ public class FactorioEnemiesMod {
 		ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType());
 		if (id == null || !MODID.equals(id.getNamespace())) return;
 		double attackDmg = attLiving.getAttributeValue(Attributes.ATTACK_DAMAGE);
-		int extraDurability = Math.max(1, (int) (attackDmg * 4));
+		int extraDurability = Math.max(1, (int) (attackDmg * 2));
 		for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
 			ItemStack armor = player.getItemBySlot(slot);
 			if (!armor.isEmpty() && armor.getItem() instanceof ArmorItem) {
