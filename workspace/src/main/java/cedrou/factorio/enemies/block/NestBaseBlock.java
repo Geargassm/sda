@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -107,6 +108,11 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
     public void attack(BlockState state, Level level, BlockPos pos, Player player) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof NestBlockEntity be) {
             be.aggro();
+            int dmg = (int) Math.max(1, player.getAttributeValue(Attributes.ATTACK_DAMAGE));
+            if (be.damage(dmg) && level instanceof ServerLevel sl) {
+                NestProgressData.get(sl).incrementKills();
+                level.destroyBlock(pos, false);
+            }
         }
     }
 

@@ -33,6 +33,7 @@ public class NestBlockEntity extends BlockEntity {
     private boolean aggroed = false;
     private int aggroTimer = 0;
     private boolean hasSpawnedWorm = false;
+    private int currentHealth = -1;
 
     private static final int TERRITORY_RADIUS = 64;
     private static final int MAX_MOBS = 10;
@@ -53,6 +54,19 @@ public class NestBlockEntity extends BlockEntity {
     public int getTier() { return tier; }
     public boolean isBiter() { return isBiter; }
 
+    public int maxHealth() {
+        return 50 + tier * 50; // tier 0=50, tier 6=350
+    }
+
+    public boolean damage(int amount) {
+        if (currentHealth <= 0) currentHealth = maxHealth();
+        currentHealth -= amount;
+        setChanged();
+        return currentHealth <= 0;
+    }
+
+    public int getCurrentHealth() { return currentHealth; }
+
     public void aggro() {
         this.aggroed = true;
         this.aggroTimer = 0;
@@ -60,6 +74,7 @@ public class NestBlockEntity extends BlockEntity {
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, NestBlockEntity be) {
+        if (level.getDifficulty() == net.minecraft.world.Difficulty.PEACEFUL) return;
         if (be.aggroed) {
             be.aggroTimer++;
             if (be.aggroTimer >= AGGRO_DURATION) {
@@ -81,7 +96,10 @@ public class NestBlockEntity extends BlockEntity {
             be.hasSpawnedWorm = true;
             be.setChanged();
             EntityType<?> wormType = getWormTypeForTier(be.tier);
-            wormType.spawn(sl, pos.above(), MobSpawnType.MOB_SUMMONED);
+            RandomSource random = sl.getRandom();
+            double wormX = pos.getX() + 0.5 + (random.nextFloat() * 10f - 5f);
+            double wormZ = pos.getZ() + 0.5 + (random.nextFloat() * 10f - 5f);
+            wormType.spawn(sl, BlockPos.containing(wormX, pos.getY() + 1, wormZ), MobSpawnType.MOB_SUMMONED);
         }
 
         // Check global phase; upgrade block type if phase has advanced beyond this nest's tier
@@ -187,6 +205,7 @@ public class NestBlockEntity extends BlockEntity {
         tag.putBoolean("Aggroed", aggroed);
         tag.putInt("AggroTimer", aggroTimer);
         tag.putBoolean("HasSpawnedWorm", hasSpawnedWorm);
+        tag.putInt("CurrentHealth", currentHealth);
     }
 
     @Override
@@ -198,5 +217,6 @@ public class NestBlockEntity extends BlockEntity {
         aggroed = tag.getBoolean("Aggroed");
         aggroTimer = tag.getInt("AggroTimer");
         hasSpawnedWorm = tag.getBoolean("HasSpawnedWorm");
+        currentHealth = tag.getInt("CurrentHealth");
     }
 }

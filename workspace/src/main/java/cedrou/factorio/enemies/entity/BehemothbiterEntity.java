@@ -48,7 +48,6 @@ public class BehemothbiterEntity extends Monster {
 		setMaxUpStep(0.7f);
 		xpReward = 0;
 		setNoAi(false);
-		setPersistenceRequired();
 		refreshDimensions();
 	}
 
@@ -144,8 +143,8 @@ public class BehemothbiterEntity extends Monster {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.5);
 		builder = builder.add(Attributes.MAX_HEALTH, 40);
 		builder = builder.add(Attributes.ARMOR, 4);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 5);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 4);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 48);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 6);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 6);
 		return builder;

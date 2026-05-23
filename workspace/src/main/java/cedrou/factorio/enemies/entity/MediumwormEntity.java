@@ -48,7 +48,6 @@ public class MediumwormEntity extends Monster implements RangedAttackMob {
 		setMaxUpStep(0f);
 		xpReward = 0;
 		setNoAi(false);
-		setPersistenceRequired();
 		refreshDimensions();
 	}
 

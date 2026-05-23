@@ -48,7 +48,6 @@ public class BigspittersEntity extends Monster implements RangedAttackMob {
 		setMaxUpStep(0.7f);
 		xpReward = 0;
 		setNoAi(false);
-		setPersistenceRequired();
 		refreshDimensions();
 	}
 
@@ -153,8 +152,8 @@ public class BigspittersEntity extends Monster implements RangedAttackMob {
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.5);
 		builder = builder.add(Attributes.MAX_HEALTH, 30);
 		builder = builder.add(Attributes.ARMOR, 3);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 4);
-		builder = builder.add(Attributes.FOLLOW_RANGE, 64);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
+		builder = builder.add(Attributes.FOLLOW_RANGE, 32);
 		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 3);
 		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 3);
 		return builder;
