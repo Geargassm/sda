@@ -8,17 +8,15 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
 import cedrou.factorio.enemies.block.NestBaseBlock;
 
-public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
-    public NestClusterFeature(Codec<NoneFeatureConfiguration> codec) {
+public class NestClusterFeature extends Feature<NestClusterConfig> {
+    public NestClusterFeature(Codec<NestClusterConfig> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
+    public boolean place(FeaturePlaceContext<NestClusterConfig> ctx) {
         WorldGenLevel level = ctx.level();
         BlockPos origin = ctx.origin();
         RandomSource random = ctx.random();
@@ -36,7 +34,7 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
             candidate = findSurface(level, candidate);
             if (candidate == null) continue;
 
-            boolean isBiter = random.nextFloat() < 0.6f;
+            boolean isBiter = ctx.config().isBiter;
             Direction facing = Direction.from2DDataValue(random.nextInt(4));
             BlockState nestState = NestBaseBlock.forTierAndType(tier, isBiter)
                     .defaultBlockState()

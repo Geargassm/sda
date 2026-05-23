@@ -1,4 +1,4 @@
 {
   "type": "factorio_enemies:nest_cluster",
-  "config": {}
+  "config": {"is_biter": true}
 }

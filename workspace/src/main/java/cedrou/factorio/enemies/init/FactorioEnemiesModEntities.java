@@ -29,6 +29,7 @@ import cedrou.factorio.enemies.entity.BigbiterEntity;
 import cedrou.factorio.enemies.entity.BehemothwormEntity;
 import cedrou.factorio.enemies.entity.BehemothspittersEntity;
 import cedrou.factorio.enemies.entity.BehemothbiterEntity;
+import cedrou.factorio.enemies.entity.NestEntity;
 import cedrou.factorio.enemies.FactorioEnemiesMod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -78,6 +79,10 @@ public class FactorioEnemiesModEntities {
 			.setCustomClientFactory(ProjectilefactorioEntity::new).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
 
 	// Start of user code block custom entities
+	public static final RegistryObject<EntityType<NestEntity>> NEST_ENTITY = register("nest_entity",
+			EntityType.Builder.<NestEntity>of(NestEntity::new, MobCategory.MONSTER)
+					.setShouldReceiveVelocityUpdates(true).setTrackingRange(256).setUpdateInterval(3)
+					.setCustomClientFactory(NestEntity::new).sized(1.2f, 0.5f));
 	// End of user code block custom entities
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
@@ -115,5 +120,6 @@ public class FactorioEnemiesModEntities {
 		event.put(MEDIUMWORM.get(), MediumwormEntity.createAttributes().build());
 		event.put(BIGWORM.get(), BigwormEntity.createAttributes().build());
 		event.put(BEHEMOTHWORM.get(), BehemothwormEntity.createAttributes().build());
+		event.put(NEST_ENTITY.get(), NestEntity.createAttributes().build());
 	}
 }

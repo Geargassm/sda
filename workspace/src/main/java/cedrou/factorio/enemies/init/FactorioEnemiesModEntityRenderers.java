@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 
 import cedrou.factorio.enemies.client.renderer.NestBlockEntityRenderer;
+import cedrou.factorio.enemies.client.renderer.NestEntityRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallwormRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallspittersRenderer;
 import cedrou.factorio.enemies.client.renderer.SmallbiterRenderer;
@@ -49,5 +50,6 @@ public class FactorioEnemiesModEntityRenderers {
 		event.registerEntityRenderer(FactorioEnemiesModEntities.BIGWORM.get(), BigwormRenderer::new);
 		event.registerEntityRenderer(FactorioEnemiesModEntities.BEHEMOTHWORM.get(), BehemothwormRenderer::new);
 		event.registerEntityRenderer(FactorioEnemiesModEntities.PROJECTILEFACTORIO.get(), ThrownItemRenderer::new);
+		event.registerEntityRenderer(FactorioEnemiesModEntities.NEST_ENTITY.get(), NestEntityRenderer::new);
 	}
 }

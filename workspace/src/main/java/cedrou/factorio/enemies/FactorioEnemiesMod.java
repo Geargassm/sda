@@ -24,7 +24,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import cedrou.factorio.enemies.worldgen.NestClusterConfig;
 
 import com.mojang.serialization.Codec;
 
@@ -51,8 +51,8 @@ public class FactorioEnemiesMod {
 	public static final String MODID = "factorio_enemies";
 
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, MODID);
-	public static final RegistryObject<Feature<NoneFeatureConfiguration>> NEST_CLUSTER_FEATURE =
-			FEATURES.register("nest_cluster", () -> new NestClusterFeature(NoneFeatureConfiguration.CODEC));
+	public static final RegistryObject<Feature<NestClusterConfig>> NEST_CLUSTER_FEATURE =
+			FEATURES.register("nest_cluster", () -> new NestClusterFeature(NestClusterConfig.CODEC));
 
 	public FactorioEnemiesMod() {
 		// Start of user code block mod constructor
@@ -90,6 +90,7 @@ public class FactorioEnemiesMod {
 			SpawnPlacements.register(FactorioEnemiesModEntities.MEDIUMWORM.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
 			SpawnPlacements.register(FactorioEnemiesModEntities.BIGWORM.get(),      SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
 			SpawnPlacements.register(FactorioEnemiesModEntities.BEHEMOTHWORM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.NEST_ENTITY.get(),  SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
 		});
 	}
 
