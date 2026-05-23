@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermediumbig"},
     "title": {"text": "Bigger Mandibles"},
-    "description": {"text": "Large biters in the swarms. You can hear them before you see them."},
+    "description": {"text": "Large biters have joined the swarms. You can hear them clicking before you see them."},
     "show_toast": true,
     "announce_to_chat": true
   },

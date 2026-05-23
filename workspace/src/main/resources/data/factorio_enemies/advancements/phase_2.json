@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermedium"},
     "title": {"text": "The Colony Remembers"},
-    "description": {"text": "Mediums now. The hive adapts quickly."},
+    "description": {"text": "Mediums run the swarms now. The colony doesn't waste small ones on you anymore."},
     "show_toast": true,
     "announce_to_chat": true
   },

@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbigbehemoth"},
     "title": {"text": "Something Large Stirs"},
-    "description": {"text": "Behemoths near the nests. The ground moves when they do."},
+    "description": {"text": "Behemoths have been spotted near the nests. The ground shifts when they move."},
     "show_toast": true,
     "announce_to_chat": true
   },
