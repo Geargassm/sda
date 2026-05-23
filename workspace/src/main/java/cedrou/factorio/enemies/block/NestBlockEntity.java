@@ -32,6 +32,7 @@ public class NestBlockEntity extends BlockEntity {
     private int spawnTimer = 0;
     private boolean aggroed = false;
     private int aggroTimer = 0;
+    private boolean hasSpawnedWorm = false;
 
     private static final int TERRITORY_RADIUS = 64;
     private static final int MAX_MOBS = 10;
@@ -75,6 +76,13 @@ public class NestBlockEntity extends BlockEntity {
 
         if (!(level instanceof ServerLevel sl)) return;
         if (level.getDifficulty() == Difficulty.PEACEFUL) return;
+
+        if (!be.hasSpawnedWorm) {
+            be.hasSpawnedWorm = true;
+            be.setChanged();
+            EntityType<?> wormType = getWormTypeForTier(be.tier);
+            wormType.spawn(sl, pos.above(), MobSpawnType.MOB_SUMMONED);
+        }
 
         // Check global phase; upgrade block type if phase has advanced beyond this nest's tier
         int globalPhase = NestProgressData.get(sl).getPhase();
@@ -137,6 +145,15 @@ public class NestBlockEntity extends BlockEntity {
         entityType.spawn(level, BlockPos.containing(spawnX, spawnY, spawnZ), MobSpawnType.MOB_SUMMONED);
     }
 
+    private static EntityType<?> getWormTypeForTier(int tier) {
+        return switch (tier) {
+            case 2, 3 -> FactorioEnemiesModEntities.MEDIUMWORM.get();
+            case 4, 5 -> FactorioEnemiesModEntities.BIGWORM.get();
+            case 6    -> FactorioEnemiesModEntities.BEHEMOTHWORM.get();
+            default   -> FactorioEnemiesModEntities.SMALLWORM.get();
+        };
+    }
+
     private static EntityType<?> getBiterTypeForTier(int tier, RandomSource random) {
         return switch (tier) {
             case 1 -> random.nextBoolean() ? FactorioEnemiesModEntities.SMALLBITER.get() : FactorioEnemiesModEntities.MEDIUMBITER.get();
@@ -169,6 +186,7 @@ public class NestBlockEntity extends BlockEntity {
         tag.putInt("SpawnTimer", spawnTimer);
         tag.putBoolean("Aggroed", aggroed);
         tag.putInt("AggroTimer", aggroTimer);
+        tag.putBoolean("HasSpawnedWorm", hasSpawnedWorm);
     }
 
     @Override
@@ -179,5 +197,6 @@ public class NestBlockEntity extends BlockEntity {
         spawnTimer = tag.getInt("SpawnTimer");
         aggroed = tag.getBoolean("Aggroed");
         aggroTimer = tag.getInt("AggroTimer");
+        hasSpawnedWorm = tag.getBoolean("HasSpawnedWorm");
     }
 }

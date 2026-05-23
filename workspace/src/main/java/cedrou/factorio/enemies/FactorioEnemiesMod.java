@@ -8,6 +8,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,6 +16,9 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -64,9 +68,29 @@ public class FactorioEnemiesMod {
 
 		FactorioEnemiesModTabs.REGISTRY.register(bus);
 		FEATURES.register(bus);
+		bus.addListener(FactorioEnemiesMod::setupSpawnRestrictions);
 
 		// Start of user code block mod init
 		// End of user code block mod init
+	}
+
+	private static void setupSpawnRestrictions(FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			// Biters, spitters, and worms only spawn from nests — block all natural spawning
+			var never = (SpawnPlacements.SpawnPredicate<?>) (type, level, spawnType, pos, random) -> false;
+			SpawnPlacements.register(FactorioEnemiesModEntities.SMALLBITER.get(),    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.MEDIUMBITER.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BIGBITER.get(),      SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BEHEMOTHBITER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.SMALLSPITTERS.get(),    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.MEDIUMSPITTERS.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BIGSPITTERS.get(),      SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BEHEMOTHSPITTERS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.SMALLWORM.get(),    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.MEDIUMWORM.get(),   SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BIGWORM.get(),      SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+			SpawnPlacements.register(FactorioEnemiesModEntities.BEHEMOTHWORM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (SpawnPlacements.SpawnPredicate) never);
+		});
 	}
 
 	// Start of user code block mod methods
