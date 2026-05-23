@@ -98,7 +98,7 @@ public class ProjectilefactorioEntity extends AbstractArrow implements ItemSuppl
 		double dz = target.getZ() - entity.getZ();
 		entityarrow.shoot(dx, dy - entityarrow.getY() + Math.hypot(dx, dz) * 0.2F, dz, 2f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setBaseDamage(1);
+		entityarrow.setBaseDamage(entity.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE));
 		entityarrow.setKnockback(1);
 		entityarrow.setCritArrow(true);
 		entity.level().addFreshEntity(entityarrow);
