@@ -21,8 +21,8 @@ public class NestEntityRenderer extends EntityRenderer<NestEntity> {
     @Override
     public void render(NestEntity entity, float yaw, float partial, PoseStack ps, MultiBufferSource buffer, int packedLight) {
         ps.pushPose();
-        ps.translate(-0.25, 0, -0.25);
-        ps.scale(1.5f, 1.5f, 1.5f);
+        ps.translate(-0.75, 0, -0.75);
+        ps.scale(2.5f, 2.5f, 2.5f);
         BlockState blockState = NestBaseBlock.forTierAndType(entity.getTier(), entity.isBiter()).defaultBlockState();
         Minecraft.getInstance().getBlockRenderer().renderSingleBlock(blockState, ps, buffer, packedLight, OverlayTexture.NO_OVERLAY);
         ps.popPose();

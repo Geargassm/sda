@@ -24,7 +24,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import cedrou.factorio.enemies.worldgen.NestClusterConfig;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import com.mojang.serialization.Codec;
 
@@ -51,8 +51,10 @@ public class FactorioEnemiesMod {
 	public static final String MODID = "factorio_enemies";
 
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, MODID);
-	public static final RegistryObject<Feature<NestClusterConfig>> NEST_CLUSTER_FEATURE =
-			FEATURES.register("nest_cluster", () -> new NestClusterFeature(NestClusterConfig.CODEC));
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> BITER_NEST_CLUSTER =
+			FEATURES.register("biter_nest_cluster", () -> new NestClusterFeature(NoneFeatureConfiguration.CODEC, true));
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPITTER_NEST_CLUSTER =
+			FEATURES.register("spitter_nest_cluster", () -> new NestClusterFeature(NoneFeatureConfiguration.CODEC, false));
 
 	public FactorioEnemiesMod() {
 		// Start of user code block mod constructor

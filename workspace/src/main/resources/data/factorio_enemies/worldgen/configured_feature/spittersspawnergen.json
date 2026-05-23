@@ -1,4 +1,4 @@
 {
-  "type": "factorio_enemies:nest_cluster",
-  "config": {"is_biter": false}
+  "type": "factorio_enemies:spitter_nest_cluster",
+  "config": {}
 }
