@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbehemoth"},
     "title": {"text": "The Colony's Finest"},
-    "description": {"text": "Full behemoth swarms roam the colony now. The hive saved the best for last."},
+    "description": {"text": "Full behemoth swarms roam the colony. Get behind something solid and hope it holds."},
     "show_toast": true,
     "announce_to_chat": true
   },

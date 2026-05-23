@@ -3,7 +3,7 @@
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbig"},
     "title": {"text": "Thicker Carapace"},
-    "description": {"text": "The large ones lead every swarm now. That carapace wasn't built for anything you're carrying."},
+    "description": {"text": "The large ones lead every swarm now. That carapace wasn't built for anything you're currently carrying."},
     "show_toast": true,
     "announce_to_chat": true
   },
