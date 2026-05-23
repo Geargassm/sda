@@ -26,7 +26,7 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
         RandomSource random = ctx.random();
 
         double dist = Math.sqrt((double) origin.getX() * origin.getX() + (double) origin.getZ() * origin.getZ());
-        int tier = (int) Math.min(6, dist / 500.0);
+        int tier = (int) Math.min(6, dist / 1500.0);
 
         int count = 5 + random.nextInt(4);
 

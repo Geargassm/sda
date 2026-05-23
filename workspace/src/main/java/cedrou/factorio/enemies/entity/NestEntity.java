@@ -171,8 +171,10 @@ public class NestEntity extends Mob {
     @Override
     public void die(DamageSource source) {
         super.die(source);
-        if (this.level() instanceof ServerLevel sl) {
-            NestProgressData.get(sl).incrementKills();
+        if (level() instanceof ServerLevel sl) {
+            NestProgressData data = NestProgressData.get(sl);
+            data.incrementKills(sl);
+            data.scheduleRespawn(blockPosition(), getTier(), isBiter(), sl.getGameTime());
         }
     }
 

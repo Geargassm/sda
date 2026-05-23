@@ -68,7 +68,7 @@ public class BehemothwormEntity extends Monster implements RangedAttackMob {
 		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, Player.class, false, true));
-		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10f) {
+		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 50, 10f) {
 			@Override
 			public boolean canContinueToUse() {
 				return this.canUse();

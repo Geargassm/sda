@@ -110,7 +110,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
             be.aggro();
             int dmg = (int) Math.max(1, player.getAttributeValue(Attributes.ATTACK_DAMAGE));
             if (be.damage(dmg) && level instanceof ServerLevel sl) {
-                NestProgressData.get(sl).incrementKills();
+                NestProgressData.get(sl).incrementKills(sl);
                 level.destroyBlock(pos, false);
             }
         }
@@ -119,7 +119,7 @@ public abstract class NestBaseBlock extends BaseEntityBlock implements SimpleWat
     @Override
     public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (level instanceof ServerLevel sl) {
-            NestProgressData.get(sl).incrementKills();
+            NestProgressData.get(sl).incrementKills(sl);
         }
         super.playerWillDestroy(level, pos, state, player);
     }

@@ -1,0 +1,11 @@
+{
+  "display": {
+    "icon": {"item": "factorio_enemies:nestbiter"},
+    "title": {"text": "Biter Incursion"},
+    "description": {"text": "The biters have arrived."},
+    "background": "minecraft:textures/block/netherrack.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {"tick": {"trigger": "minecraft:impossible"}}
+}

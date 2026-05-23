@@ -1,0 +1,11 @@
+{
+  "parent": "factorio_enemies:root",
+  "display": {
+    "icon": {"item": "factorio_enemies:nestbitermedium"},
+    "title": {"text": "Medium Threat"},
+    "description": {"text": "Nests now predominantly spawn medium units."},
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {"trigger": {"trigger": "minecraft:impossible"}}
+}

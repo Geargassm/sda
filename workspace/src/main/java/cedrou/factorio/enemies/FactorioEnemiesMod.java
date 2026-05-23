@@ -13,7 +13,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.server.ServerLifecycleHooks;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
+
+import cedrou.factorio.enemies.NestProgressData;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -115,6 +123,19 @@ public class FactorioEnemiesMod {
 	}
 
 	@SubscribeEvent
+	public void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
+		if (!(event.getEntity() instanceof Player)) return;
+		if (!(event.getLevel() instanceof ServerLevel sl)) return;
+		NestProgressData.get(sl).addPlayerBlock(event.getPos());
+	}
+
+	@SubscribeEvent
+	public void onBlockBreak(BlockEvent.BreakEvent event) {
+		if (!(event.getLevel() instanceof ServerLevel sl)) return;
+		NestProgressData.get(sl).removePlayerBlock(event.getPos());
+	}
+
+	@SubscribeEvent
 	public void tick(TickEvent.ServerTickEvent event) {
 		if (event.phase == TickEvent.Phase.END) {
 			List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
@@ -125,6 +146,12 @@ public class FactorioEnemiesMod {
 			});
 			actions.forEach(e -> e.getKey().run());
 			workQueue.removeAll(actions);
+
+			MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+			if (server != null && server.getTickCount() % 200 == 0) {
+				ServerLevel overworld = server.overworld();
+				NestProgressData.get(overworld).tickRespawns(overworld);
+			}
 		}
 	}
 }

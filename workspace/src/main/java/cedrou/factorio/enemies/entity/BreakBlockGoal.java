@@ -3,6 +3,8 @@ package cedrou.factorio.enemies.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
+
+import cedrou.factorio.enemies.NestProgressData;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -114,6 +116,11 @@ public class BreakBlockGoal extends Goal {
         if (state.isAir()) return false;
         float hardness = state.getDestroySpeed(level, pos);
         // skip indestructible (hardness < 0) and extremely hard blocks (obsidian+ territory)
-        return hardness >= 0 && hardness < 50f;
+        if (hardness < 0 || hardness >= 50f) return false;
+        // Only break player-placed blocks
+        if (level instanceof ServerLevel sl) {
+            if (!NestProgressData.get(sl).isPlayerBlock(pos)) return false;
+        }
+        return true;
     }
 }

@@ -1,0 +1,11 @@
+{
+  "parent": "factorio_enemies:root",
+  "display": {
+    "icon": {"item": "factorio_enemies:nestbiterbig"},
+    "title": {"text": "Major Threat"},
+    "description": {"text": "Large biters and spitters now dominate the nests."},
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {"trigger": {"trigger": "minecraft:impossible"}}
+}
