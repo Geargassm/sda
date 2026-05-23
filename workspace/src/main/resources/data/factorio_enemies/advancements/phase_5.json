@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbigbehemoth"},
-    "title": {"text": "Absurdly Large Bugs"},
-    "description": {"text": "Behemoth-class units detected. Bigger than anything before. Still technically just bugs."},
+    "title": {"text": "Something Large Stirs"},
+    "description": {"text": "Behemoths near the nests. The ground shudders when they move. You probably should have stopped earlier."},
     "show_toast": true,
     "announce_to_chat": true
   },

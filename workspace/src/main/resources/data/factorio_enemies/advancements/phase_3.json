@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermediumbig"},
-    "title": {"text": "Concerningly Large Bugs"},
-    "description": {"text": "Large units have joined the swarms. Still bugs. Just... concerningly large ones."},
+    "title": {"text": "Bigger Mandibles"},
+    "description": {"text": "The large ones have emerged. You can hear the click of their claws before you see them. That's new."},
     "show_toast": true,
     "announce_to_chat": true
   },

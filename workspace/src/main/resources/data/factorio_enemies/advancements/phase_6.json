@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbehemoth"},
-    "title": {"text": "The Biggest Bugs"},
-    "description": {"text": "Full behemoth force. The colony has reached its ceiling. Unfortunately, so have you."},
+    "title": {"text": "The Colony's Finest"},
+    "description": {"text": "Full behemoth swarms. Every nest you crushed hatched something worse. This is what you made."},
     "show_toast": true,
     "announce_to_chat": true
   },

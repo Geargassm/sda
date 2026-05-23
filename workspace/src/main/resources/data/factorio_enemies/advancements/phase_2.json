@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermedium"},
-    "title": {"text": "More Bigger Bugs"},
-    "description": {"text": "Predominantly mediums now. They've been watching you work. Bugs aren't supposed to be this attentive."},
+    "title": {"text": "The Colony Remembers"},
+    "description": {"text": "Mediums have taken over the swarms. The hive learns from every nest you destroy. It's been paying attention."},
     "show_toast": true,
     "announce_to_chat": true
   },
