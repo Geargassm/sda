@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermedium"},
-    "title": {"text": "Medium Threat"},
-    "description": {"text": "Nests now predominantly spawn medium units."},
+    "title": {"text": "Nothing Personal"},
+    "description": {"text": "Mediums are running the show now. The biters aren't angry — this is just how they work."},
     "show_toast": true,
     "announce_to_chat": true
   },

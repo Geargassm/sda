@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbehemoth"},
-    "title": {"text": "Full Behemoth Force"},
-    "description": {"text": "The nests now spawn behemoth units. Fortify your position."},
+    "title": {"text": "You Did This"},
+    "description": {"text": "Full behemoth force. Every nest you destroyed made them stronger. No regrets?"},
     "show_toast": true,
     "announce_to_chat": true
   },

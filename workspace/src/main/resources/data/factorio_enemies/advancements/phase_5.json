@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbigbehemoth"},
-    "title": {"text": "Behemoth Approaching"},
-    "description": {"text": "Behemoth-class units have been spotted near nests."},
+    "title": {"text": "Oh No."},
+    "description": {"text": "Behemoth-class units have been detected. A behemoth can take a lot of punishment. More than you'd like to test."},
     "show_toast": true,
     "announce_to_chat": true
   },

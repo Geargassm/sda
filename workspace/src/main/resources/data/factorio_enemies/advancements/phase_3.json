@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbitermediumbig"},
-    "title": {"text": "Growing Incursion"},
-    "description": {"text": "Large units have appeared among the swarms."},
+    "title": {"text": "Escalation Protocol"},
+    "description": {"text": "Large units have been spotted near the nests. Whatever you're building in there, they've noticed."},
     "show_toast": true,
     "announce_to_chat": true
   },

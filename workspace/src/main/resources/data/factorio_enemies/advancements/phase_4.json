@@ -2,8 +2,8 @@
   "parent": "factorio_enemies:root",
   "display": {
     "icon": {"item": "factorio_enemies:nestbiterbig"},
-    "title": {"text": "Major Threat"},
-    "description": {"text": "Large biters and spitters now dominate the nests."},
+    "title": {"text": "Bigger Problems"},
+    "description": {"text": "Large biters and spitters lead every assault now. Start reinforcing. Or don't. Your choice."},
     "show_toast": true,
     "announce_to_chat": true
   },
