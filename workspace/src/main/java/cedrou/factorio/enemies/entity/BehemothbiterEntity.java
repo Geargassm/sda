@@ -132,7 +132,7 @@ public class BehemothbiterEntity extends Monster {
 
 	@Override
 	public EntityDimensions getDimensions(Pose pose) {
-		return super.getDimensions(pose).scale(6f);
+		return super.getDimensions(pose).scale(5f);
 	}
 
 	public static void init() {

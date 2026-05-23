@@ -30,6 +30,18 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 
 import cedrou.factorio.enemies.NestProgressData;
+import cedrou.factorio.enemies.entity.SmallbiterEntity;
+import cedrou.factorio.enemies.entity.MediumbiterEntity;
+import cedrou.factorio.enemies.entity.BigbiterEntity;
+import cedrou.factorio.enemies.entity.BehemothbiterEntity;
+import cedrou.factorio.enemies.entity.SmallspittersEntity;
+import cedrou.factorio.enemies.entity.MediumspittersEntity;
+import cedrou.factorio.enemies.entity.BigspittersEntity;
+import cedrou.factorio.enemies.entity.BehemothspittersEntity;
+import cedrou.factorio.enemies.entity.SmallwormEntity;
+import cedrou.factorio.enemies.entity.MediumwormEntity;
+import cedrou.factorio.enemies.entity.BigwormEntity;
+import cedrou.factorio.enemies.entity.BehemothwormEntity;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -134,17 +146,23 @@ public class FactorioEnemiesMod {
 	public void onLivingHurt(LivingHurtEvent event) {
 		if (!(event.getEntity() instanceof Player player)) return;
 		Entity attacker = event.getSource().getEntity();
-		if (!(attacker instanceof LivingEntity attLiving)) return;
-		ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType());
-		if (id == null || !MODID.equals(id.getNamespace())) return;
-		double attackDmg = attLiving.getAttributeValue(Attributes.ATTACK_DAMAGE);
-		int extraDurability = Math.max(1, (int) (attackDmg * 2));
+		if (attacker == null) return;
+		int drain = getArmorDrain(attacker);
+		if (drain <= 0) return;
 		for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
 			ItemStack armor = player.getItemBySlot(slot);
 			if (!armor.isEmpty() && armor.getItem() instanceof ArmorItem) {
-				armor.hurtAndBreak(extraDurability, player, p -> p.broadcastBreakEvent(slot));
+				armor.hurtAndBreak(drain, player, p -> p.broadcastBreakEvent(slot));
 			}
 		}
+	}
+
+	private static int getArmorDrain(Entity attacker) {
+		if (attacker instanceof SmallbiterEntity   || attacker instanceof SmallspittersEntity  || attacker instanceof SmallwormEntity)   return 3;
+		if (attacker instanceof MediumbiterEntity  || attacker instanceof MediumspittersEntity || attacker instanceof MediumwormEntity)  return 7;
+		if (attacker instanceof BigbiterEntity     || attacker instanceof BigspittersEntity    || attacker instanceof BigwormEntity)     return 12;
+		if (attacker instanceof BehemothbiterEntity|| attacker instanceof BehemothspittersEntity|| attacker instanceof BehemothwormEntity) return 20;
+		return 0;
 	}
 
 	@SubscribeEvent

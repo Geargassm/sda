@@ -119,7 +119,7 @@ public class SmallwormEntity extends Monster implements RangedAttackMob {
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
-			this.animationState0.animateWhen(SmallwormspawnPlaybackConditionProcedure.execute(this), this.tickCount);
+			this.animationState0.stop();
 			this.animationState1.animateWhen(true, this.tickCount);
 			this.animationState2.animateWhen(SmallspittersPlaybackConditionProcedure.execute(this.level(), this.getX(), this.getY(), this.getZ()), this.tickCount);
 		}

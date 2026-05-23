@@ -58,7 +58,7 @@ public class NestBlockEntity extends BlockEntity {
         if (level.getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false) == null) return;
         NestEntity entity = FactorioEnemiesModEntities.NEST_ENTITY.get().create(sl);
         if (entity == null) return;
-        int phase = NestProgressData.get(sl).getPhase();
+        int phase = Math.max(be.tier, NestProgressData.get(sl).getPhase());
         entity.init(phase, be.isBiter);
         entity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         sl.addFreshEntity(entity);
