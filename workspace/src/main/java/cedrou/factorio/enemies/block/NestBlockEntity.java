@@ -7,6 +7,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+import cedrou.factorio.enemies.NestProgressData;
 import cedrou.factorio.enemies.entity.NestEntity;
 import cedrou.factorio.enemies.init.FactorioEnemiesModBlockEntities;
 import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
@@ -57,7 +58,8 @@ public class NestBlockEntity extends BlockEntity {
         if (level.getNearestPlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 64, false) == null) return;
         NestEntity entity = FactorioEnemiesModEntities.NEST_ENTITY.get().create(sl);
         if (entity == null) return;
-        entity.init(be.tier, be.isBiter);
+        int phase = NestProgressData.get(sl).getPhase();
+        entity.init(phase, be.isBiter);
         entity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         sl.addFreshEntity(entity);
         level.setBlock(pos, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), 3);

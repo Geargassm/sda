@@ -25,9 +25,6 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos origin = ctx.origin();
         RandomSource random = ctx.random();
 
-        double dist = Math.sqrt((double) origin.getX() * origin.getX() + (double) origin.getZ() * origin.getZ());
-        int tier = (int) Math.min(6, dist / 1500.0);
-
         int count = 5 + random.nextInt(4);
 
         for (int i = 0; i < count; i++) {
@@ -39,7 +36,7 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
             if (candidate == null) continue;
 
             Direction facing = Direction.from2DDataValue(random.nextInt(4));
-            BlockState nestState = NestBaseBlock.forTierAndType(tier, isBiter)
+            BlockState nestState = NestBaseBlock.forTierAndType(0, isBiter)
                     .defaultBlockState()
                     .setValue(NestBaseBlock.FACING, facing)
                     .setValue(NestBaseBlock.WATERLOGGED, false);

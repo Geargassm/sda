@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class NestProgressData extends SavedData {
     private static final String ID = "factorio_enemies_nest_progress";
-    private static final int[] PHASE_THRESHOLDS = {0, 15, 35, 60, 100, 150, 210};
+    private static final int[] PHASE_THRESHOLDS = {0, 45, 105, 180, 300, 450, 630};
 
     public static final long RESPAWN_DELAY_TICKS = 72000L;
 
