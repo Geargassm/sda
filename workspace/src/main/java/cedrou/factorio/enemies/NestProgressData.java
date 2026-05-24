@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.saveddata.SavedData;
 
+import cedrou.factorio.enemies.FactorioEnemiesConfig;
 import cedrou.factorio.enemies.block.NestBaseBlock;
 
 import java.util.ArrayList;
@@ -19,7 +20,6 @@ import java.util.Set;
 
 public class NestProgressData extends SavedData {
     private static final String ID = "factorio_enemies_nest_progress";
-    private static final int[] PHASE_THRESHOLDS = {0, 45, 105, 180, 300, 450, 630};
 
     public static final long RESPAWN_DELAY_TICKS = 72000L;
 
@@ -62,8 +62,9 @@ public class NestProgressData extends SavedData {
     }
 
     public int getPhase() {
-        for (int i = PHASE_THRESHOLDS.length - 1; i >= 0; i--) {
-            if (killCount >= PHASE_THRESHOLDS[i]) return i;
+        java.util.List<? extends Integer> thresholds = FactorioEnemiesConfig.EVO_THRESHOLDS.get();
+        for (int i = thresholds.size() - 1; i >= 0; i--) {
+            if (killCount >= thresholds.get(i)) return i + 1;
         }
         return 0;
     }

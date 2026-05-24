@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import cedrou.factorio.enemies.FactorioEnemiesConfig;
 import cedrou.factorio.enemies.block.NestBaseBlock;
 
 public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
@@ -25,7 +26,12 @@ public class NestClusterFeature extends Feature<NoneFeatureConfiguration> {
         BlockPos origin = ctx.origin();
         RandomSource random = ctx.random();
 
-        int count = 7 + random.nextInt(4);
+        int rarity = FactorioEnemiesConfig.CLUSTER_RARITY.get();
+        if (rarity > 1 && random.nextInt(rarity) != 0) return false;
+
+        int variance = FactorioEnemiesConfig.CLUSTER_NEST_VARIANCE.get();
+        int count = FactorioEnemiesConfig.CLUSTER_MIN_NESTS.get()
+                + (variance > 0 ? random.nextInt(variance + 1) : 0);
 
         for (int i = 0; i < count; i++) {
             int dx = random.nextInt(7) - 3;

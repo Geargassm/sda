@@ -9,6 +9,8 @@ import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -88,6 +90,7 @@ public class FactorioEnemiesMod {
 	public FactorioEnemiesMod() {
 		// Start of user code block mod constructor
 		// End of user code block mod constructor
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FactorioEnemiesConfig.SPEC);
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		FactorioEnemiesModSounds.REGISTRY.register(bus);
