@@ -61,6 +61,16 @@ public class NestProgressData extends SavedData {
         return killCount;
     }
 
+    public void setKillCount(int count, ServerLevel level) {
+        int oldPhase = getPhase();
+        killCount = Math.max(0, count);
+        int newPhase = getPhase();
+        setDirty();
+        if (newPhase > oldPhase) {
+            grantPhaseAdvancement(level, newPhase);
+        }
+    }
+
     public int getPhase() {
         java.util.List<? extends Integer> thresholds = FactorioEnemiesConfig.EVO_THRESHOLDS.get();
         for (int i = thresholds.size() - 1; i >= 0; i--) {

@@ -69,7 +69,7 @@ public class BehemothspittersEntity extends Monster implements RangedAttackMob {
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 0.8));
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, Player.class, false, true));
-		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 25, 10f) {
+		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 50, 10f) {
 			@Override
 			public boolean canContinueToUse() {
 				return this.canUse();

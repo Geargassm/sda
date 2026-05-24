@@ -99,7 +99,7 @@ public class ProjectilefactorioEntity extends AbstractArrow implements ItemSuppl
 		entityarrow.shoot(dx, dy - entityarrow.getY() + Math.hypot(dx, dz) * 0.2F, dz, 2f * 2, 12.0F);
 		entityarrow.setSilent(true);
 		entityarrow.setBaseDamage(entity.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE));
-		entityarrow.setKnockback(1);
+		entityarrow.setKnockback(0);
 		entityarrow.setCritArrow(true);
 		entity.level().addFreshEntity(entityarrow);
 		entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")), SoundSource.PLAYERS, 1, 1f / (RandomSource.create().nextFloat() * 0.5f + 1));
