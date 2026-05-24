@@ -40,7 +40,7 @@ public class NestEntity extends Mob {
     private boolean hasSpawnedWorm = false;
 
     private static final int TERRITORY_RADIUS = 64;
-    private static final int MAX_MOBS = 5;
+    private static final int MAX_MOBS = 8;
     private static final int NORMAL_SPAWN_INTERVAL = 100;
     private static final int AGGRO_SPAWN_INTERVAL = 20;
     private static final int AGGRO_DURATION = 1200;
@@ -134,6 +134,17 @@ public class NestEntity extends Mob {
             wormType.spawn(sl, BlockPos.containing(wormX, this.getY() + 1, wormZ), MobSpawnType.MOB_SUMMONED);
         }
 
+        // Player detection every 10 ticks so re-aggro is near-instant
+        if (this.tickCount % 10 == 0) {
+            Player nearby = this.level().getNearestPlayer(
+                    this.getX(), this.getY(), this.getZ(), TERRITORY_RADIUS, false);
+            if (nearby != null && !aggroed) {
+                aggroed = true;
+                aggroTimer = 0;
+                spawnTimer = AGGRO_SPAWN_INTERVAL; // fire immediately on next cycle
+            }
+        }
+
         // Spawn timer
         int interval = aggroed ? AGGRO_SPAWN_INTERVAL : NORMAL_SPAWN_INTERVAL;
         spawnTimer++;
@@ -147,15 +158,8 @@ public class NestEntity extends Mob {
             return;
         }
 
-        // Aggro and spawn if player nearby
         Player nearestPlayer = this.level().getNearestPlayer(
                 this.getX(), this.getY(), this.getZ(), TERRITORY_RADIUS, false);
-
-        if (nearestPlayer != null && !aggroed) {
-            aggroed = true;
-            aggroTimer = 0;
-        }
-
         if (nearestPlayer == null) return;
 
         spawnMobs(sl);

@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -140,6 +141,21 @@ public class FactorioEnemiesMod {
 	public static void queueServerWork(int tick, Runnable action) {
 		if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER)
 			workQueue.add(new AbstractMap.SimpleEntry<>(action, tick));
+	}
+
+	@SubscribeEvent
+	public void onLivingDeath(LivingDeathEvent event) {
+		if (!(event.getSource().getEntity() instanceof net.minecraft.server.level.ServerPlayer player)) return;
+		ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType());
+		if (id == null || !MODID.equals(id.getNamespace())) return;
+		if (!(player.level() instanceof ServerLevel sl)) return;
+		net.minecraft.advancements.Advancement adv = sl.getServer().getAdvancements()
+				.getAdvancement(new ResourceLocation("factorio_enemies", "root"));
+		if (adv == null) return;
+		net.minecraft.advancements.AdvancementProgress prog = player.getAdvancements().getOrStartProgress(adv);
+		if (!prog.isDone()) {
+			for (String criterion : prog.getRemainingCriteria()) player.getAdvancements().award(adv, criterion);
+		}
 	}
 
 	@SubscribeEvent
