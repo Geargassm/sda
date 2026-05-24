@@ -27,10 +27,6 @@ import net.minecraft.world.phys.AABB;
 
 import cedrou.factorio.enemies.NestProgressData;
 import cedrou.factorio.enemies.init.FactorioEnemiesModEntities;
-import cedrou.factorio.enemies.entity.SmallwormEntity;
-import cedrou.factorio.enemies.entity.MediumwormEntity;
-import cedrou.factorio.enemies.entity.BigwormEntity;
-import cedrou.factorio.enemies.entity.BehemothwormEntity;
 
 public class NestEntity extends Mob {
     private static final EntityDataAccessor<Integer> TIER =
@@ -45,7 +41,6 @@ public class NestEntity extends Mob {
 
     private static final int TERRITORY_RADIUS = 64;
     private static final int MAX_MOBS = 5;
-    private static final int MAX_WORMS = 1;
     private static final int NORMAL_SPAWN_INTERVAL = 100;
     private static final int AGGRO_SPAWN_INTERVAL = 20;
     private static final int AGGRO_DURATION = 1200;
@@ -129,23 +124,14 @@ public class NestEntity extends Mob {
             }
         }
 
-        // Spawn at most one worm per cluster territory
+        // Each nest spawns exactly one worm on first activation
         if (!hasSpawnedWorm) {
             hasSpawnedWorm = true;
-            AABB wormBox = new AABB(
-                    this.getX() - TERRITORY_RADIUS, this.getY() - TERRITORY_RADIUS, this.getZ() - TERRITORY_RADIUS,
-                    this.getX() + TERRITORY_RADIUS, this.getY() + TERRITORY_RADIUS, this.getZ() + TERRITORY_RADIUS);
-            int wormCount = sl.getEntitiesOfClass(SmallwormEntity.class, wormBox).size()
-                    + sl.getEntitiesOfClass(MediumwormEntity.class, wormBox).size()
-                    + sl.getEntitiesOfClass(BigwormEntity.class, wormBox).size()
-                    + sl.getEntitiesOfClass(BehemothwormEntity.class, wormBox).size();
-            if (wormCount < MAX_WORMS) {
-                EntityType<?> wormType = getWormTypeForTier(getTier());
-                RandomSource random = sl.getRandom();
-                double wormX = this.getX() + (random.nextFloat() * 10f - 5f);
-                double wormZ = this.getZ() + (random.nextFloat() * 10f - 5f);
-                wormType.spawn(sl, BlockPos.containing(wormX, this.getY() + 1, wormZ), MobSpawnType.MOB_SUMMONED);
-            }
+            EntityType<?> wormType = getWormTypeForTier(getTier());
+            RandomSource random = sl.getRandom();
+            double wormX = this.getX() + (random.nextFloat() * 10f - 5f);
+            double wormZ = this.getZ() + (random.nextFloat() * 10f - 5f);
+            wormType.spawn(sl, BlockPos.containing(wormX, this.getY() + 1, wormZ), MobSpawnType.MOB_SUMMONED);
         }
 
         // Player detection every 10 ticks so re-aggro is near-instant
