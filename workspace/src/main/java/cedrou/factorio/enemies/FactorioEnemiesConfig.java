@@ -31,7 +31,7 @@ public class FactorioEnemiesConfig {
 
         CLUSTER_RARITY = b
                 .comment("1-in-N chance per chunk that a nest cluster spawns. Lower = more clusters.")
-                .defineInRange("clusterRarity", 100, 1, 10000);
+                .defineInRange("clusterRarity", 135, 1, 10000);
 
         CLUSTER_MIN_NESTS = b
                 .comment("Minimum number of nest blocks placed per cluster.")

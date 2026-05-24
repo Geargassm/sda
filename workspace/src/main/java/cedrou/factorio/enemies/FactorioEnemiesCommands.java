@@ -10,12 +10,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 
+@Mod.EventBusSubscriber(modid = FactorioEnemiesMod.MODID)
 public class FactorioEnemiesCommands {
 
-    public static void register(RegisterCommandsEvent event) {
+    @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
 
         dispatcher.register(
@@ -39,21 +43,19 @@ public class FactorioEnemiesCommands {
     private static int getPhase(CommandContext<CommandSourceStack> ctx) {
         ServerLevel level = ctx.getSource().getLevel();
         NestProgressData data = NestProgressData.get(level);
-        ctx.getSource().sendSuccess(
-            () -> Component.literal("Evolution phase: " + data.getPhase() + "  |  Kills: " + data.getKillCount()),
-            false
-        );
-        return data.getPhase();
+        int phase = data.getPhase();
+        int kills = data.getKillCount();
+        ctx.getSource().sendSuccess(() -> Component.literal("Phase: " + phase + "  |  Kills: " + kills), false);
+        return phase;
     }
 
     private static int getKills(CommandContext<CommandSourceStack> ctx) {
         ServerLevel level = ctx.getSource().getLevel();
         NestProgressData data = NestProgressData.get(level);
-        ctx.getSource().sendSuccess(
-            () -> Component.literal("Kill count: " + data.getKillCount() + "  |  Phase: " + data.getPhase()),
-            false
-        );
-        return data.getKillCount();
+        int kills = data.getKillCount();
+        int phase = data.getPhase();
+        ctx.getSource().sendSuccess(() -> Component.literal("Kills: " + kills + "  |  Phase: " + phase), false);
+        return kills;
     }
 
     private static int setPhase(CommandContext<CommandSourceStack> ctx, int phase) {
@@ -61,10 +63,7 @@ public class FactorioEnemiesCommands {
         NestProgressData data = NestProgressData.get(level);
         int killCount = killsForPhase(phase);
         data.setKillCount(killCount, level);
-        ctx.getSource().sendSuccess(
-            () -> Component.literal("Set evolution to phase " + phase + " (kills: " + killCount + ")"),
-            true
-        );
+        ctx.getSource().sendSuccess(() -> Component.literal("Set phase to " + phase + " (kills: " + killCount + ")"), true);
         return phase;
     }
 
@@ -73,10 +72,7 @@ public class FactorioEnemiesCommands {
         NestProgressData data = NestProgressData.get(level);
         data.setKillCount(count, level);
         int phase = data.getPhase();
-        ctx.getSource().sendSuccess(
-            () -> Component.literal("Set kills to " + count + "  |  Phase: " + phase),
-            true
-        );
+        ctx.getSource().sendSuccess(() -> Component.literal("Set kills to " + count + "  |  Phase: " + phase), true);
         return count;
     }
 

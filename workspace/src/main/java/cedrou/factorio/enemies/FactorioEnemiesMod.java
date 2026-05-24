@@ -92,7 +92,6 @@ public class FactorioEnemiesMod {
 		// End of user code block mod constructor
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FactorioEnemiesConfig.SPEC);
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.EVENT_BUS.addListener(FactorioEnemiesCommands::register);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		FactorioEnemiesModSounds.REGISTRY.register(bus);
 		FactorioEnemiesModBlocks.REGISTRY.register(bus);
